@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="css/style.css">
+  <title>Барбершоп &ldquo;Бородинский&rdquo;</title>
+</head>
+
+<body>
+  <header class="header">
+    <a class="header__logo">
+      <img src="img/logo-mobile.svg" width="226" height="30" alt="Барбершоп &ldquo;Бородинский&rdquo;">
+    </a>
+
+    <nav class="main-nav  main-nav--closed  main-nav--nojs">
+      <button class="main-nav__toggle" type="button">
+        <span class="visually-hidden">Открыть меню</span>
+      </button>
+      <div class="main-nav__wrapper">
+        <ul class="main-nav__items">
+          <li class="main-nav__item  main-nav__item--active">
+            <a>Главная</a>
+          </li>
+          <li class="main-nav__item">
+            <a href="photo.html">Наши работы</a>
+          </li>
+          <li class="main-nav__item">
+            <a href="">Записаться</a>
+          </li>
+          <li class="main-nav__item">
+            <a href="">Контакты</a>
+          </li>
+          <li class="main-nav__item">
+            <a href="">Html academy</a>
+          </li>
+        </ul>
+        <ul class="main-nav__user-items">
+          <li class="main-nav__user-item">
+            <a class="main-nav__user-login" href="#">Войти</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+
+  <script>
+    var nav = document.querySelector('.main-nav');
+    var button = document.querySelector('.main-nav__toggle');
+    nav.classList.remove('main-nav--nojs');
+
+    button.addEventListener('click', function() {
+      if (nav.classList.contains('main-nav--closed')) {
+        nav.classList.remove('main-nav--closed');
+        nav.classList.add('main-nav--opened');
+      } else {
+        nav.classList.remove('main-nav--opened');
+        nav.classList.add('main-nav--closed');
+      }
+    });
+  </script>
+</body>
+</html>
