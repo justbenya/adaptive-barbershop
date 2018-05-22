@@ -1,0 +1,212 @@
+.stats {
+  width: 32rem;
+  margin: 0 auto;
+
+  @media (min-width: $tablet-width) {
+    width: 64rem;
+    margin-top: -18.8rem; 
+  }
+
+  @media (min-width: $desktop-width) {
+    display: flex;
+    width: 96rem;
+    margin-top: -16rem;
+  }
+
+  &__header {
+    min-height: 13rem;
+    padding: 3rem 3rem;
+    color: $color-black;
+    background-color: $color-white;
+
+    @media (min-width: $tablet-width) {
+      position: relative;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -1rem;
+        border: 4rem solid transparent;
+        border-bottom-color: $color-white;
+        transform: rotate(45deg);
+      }
+    }
+
+    @media (min-width: $desktop-width) {
+      display: block;
+    }
+  }
+
+  &__tagline {
+    display: block;
+    margin-bottom: 16px;
+    padding: 0 2rem;
+    font-size: 3rem;
+    line-height: 3rem;
+    text-align: center;
+    text-transform: uppercase;
+
+    @media (min-width: $tablet-width) {
+      width: 25rem;
+      font-size: 4rem;
+      line-height: 4rem;
+      text-align: left;
+      text-transform: none;    
+    }
+
+    @media (min-width: $desktop-width) {
+      width: auto;
+      padding: 0;
+      padding-right: 3rem;
+      margin-bottom: 4.2rem;
+    }
+  }
+
+  &__intro {
+    font-size: 1.6rem;
+    line-height: 2.2rem;
+    text-align: center;
+
+    @media (min-width: $tablet-width) {
+      font-size: 2rem;
+      line-height: 2.7rem;
+      width: 23rem;
+      margin-top: 0.5rem;
+      padding-right: 4.4rem;
+      text-align: left;
+    }
+
+    @media (min-width: $desktop-width) {
+      width: auto;
+      margin-bottom: 3.2rem;
+      padding-right: 3rem;
+    }
+  }
+
+  &__legend {
+    display: block;
+    font-size: 2rem;
+    line-height: 2.7rem;
+
+    sup {
+      top: -0.25em;
+      font-size: 90%;  
+    }
+
+    &--bottom {
+      padding-top: 2rem;
+      padding-bottom: 1.5rem;
+      text-align: center;
+      color: rgba(255, 255, 255, .3);
+      background-color: #242424;
+
+      @media (min-width: $tablet-width) {
+        display: none;
+      }
+    }
+
+    &--top {
+      display: none;
+
+      @media (min-width: $tablet-width) {
+        display: block;
+        width: 24rem;
+        color: rgba(0, 0, 0, 0.3);
+      }
+
+      @media (min-width: $desktop-width) {
+        width: auto;
+      }
+    }
+  }
+
+  &__items {
+    width: 100%;
+    border-collapse: collapse;
+
+    tr {
+      color: $color-white;
+      background-color: #404040;
+
+      &:nth-child(2) {
+        background-color: #4e4e4e;
+      }
+
+      &:nth-child(3) {
+        background-color: #353535;
+      }
+
+      &:nth-child(4) {
+        background-color: #404040;
+      }
+
+      @media (min-width: $tablet-width) {
+        width: 32rem;
+        padding: 2.5rem 3.5rem 2.8rem;
+      }
+    }
+
+    @media (min-width: $tablet-width) {
+      tbody {
+        display: flex;
+        flex-wrap: wrap;
+      }
+      
+      td {
+        display: block;
+        width: auto;
+        padding: 0;
+      }
+
+      br {
+        display: none;
+      }
+    }
+
+    @media (min-width: $desktop-width) {
+      width: 64rem;
+    }
+  }
+
+  &__value,
+  &__field {
+    width: 50%;
+    padding: 2rem;
+    padding-bottom: 1.5rem;
+    vertical-align: top;
+  }
+    
+  &__value {
+    padding-right: 0;
+    font-size: 4rem;
+    line-height: 4rem;
+
+    sup {
+      line-height: 1.5rem;
+      margin-left: 0.5rem;
+    }
+
+    @media (min-width: $tablet-width) {
+      font-size: 7.2rem;
+      line-height: 7.2rem;
+      margin-bottom: 0.7rem;
+    }
+  }
+
+  &__field {
+    padding-left: 0;
+    font-size: 1.7rem;
+    line-height: 1.8rem;
+    text-align: right;
+
+    @media (min-width: $tablet-width) {
+      font-size: 2rem;
+      line-height: 2.7rem;
+      text-align: left;
+    }
+  }
+}
