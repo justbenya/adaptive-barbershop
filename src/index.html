@@ -11,8 +11,13 @@
 
 <body>
   <header class="header">
+     <h1 class="visually-hidden">Барбершоп «Бородинский» - истинно мужская классика</h1>
     <a class="header__logo">
-      <img src="img/logo-mobile.svg" width="226" height="30" alt="Барбершоп &ldquo;Бородинский&rdquo;">
+      <picture>
+        <source media="(min-width: 1200px)" srcset="img/logo-desktop.svg">
+        <source media="(min-width: 768px)" srcset="img/logo-tablet.svg">
+        <img src="img/logo-mobile.svg" width="226" height="30" alt="Барбершоп &ldquo;Бородинский&rdquo;">
+      </picture>
     </a>
 
     <nav class="main-nav  main-nav--closed  main-nav--nojs">
@@ -46,6 +51,47 @@
     </nav>
   </header>
 
+  <section class="stats">
+    <header class="stats__header">
+      <h2 class="stats__title  visually-hidden">Статистика Барбершопа</h2>
+      <b class="stats__tagline">
+        Стрижка у нас <br> это выгодно!
+      </b>
+      <p class="stats__intro">
+        Мужская стрижка требует точного подхода. Обратимся к статистике:
+      </p>
+      <small class="stats__legend  stats__legend--top">
+        <sup>*</sup> — приведённые данные ложь</small>
+    </header>
+    <table class="stats__items">
+      <tr>
+        <td class="stats__value">1 500
+          <sup>*</sup>
+        </td>
+        <td class="stats__field">рублей
+          <br> вложений</td>
+      </tr>
+      <tr>
+        <td class="stats__value">7 200</td>
+        <td class="stats__field">секунд
+          <br> времени мастера</td>
+      </tr>
+      <tr>
+        <td class="stats__value">90 000</td>
+        <td class="stats__field">постриженных
+          <br> волос</td>
+      </tr>
+      <tr>
+        <td class="stats__value">500 000
+          <sup>*</sup>
+        </td>
+        <td class="stats__field">лайков и
+          <br> комплиментов</td>
+      </tr>
+    </table>
+    <small class="stats__legend  stats__legend--bottom">
+      <sup>*</sup> — приведённые данные ложь</small>
+  </section>
 
   <script>
     var nav = document.querySelector('.main-nav');
