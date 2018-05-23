@@ -19,16 +19,30 @@
       background-color: $color-black;
       background-image: url("../img/bg-header.jpg");
       background-repeat: no-repeat;
-      background-position: center -1rem;
+      background-position: center -0.9rem;
+
+      @media (min-resolution: $retina-dpi),
+              (min-resolution: $retina-dppx) {
+        background-image: url("../img/bg-header@2х.jpg");
+        background-size: 120rem auto;
+      }
 
       img {
-        position: absolute;
-        bottom: 250px;
-        left: 50%;
-        width: 370px;
+        display: block;
+        width: 37rem;
         height: auto;
-        // margin-left: -185px;
-        transform: translateX(-50%);
+        margin: 0 auto;
+        margin-top: 1rem;
+      }
+    }
+
+    @media (min-width: $desktop-width) {
+      height: 64.8rem;
+      background-position: center 0;
+      background-size: cover;
+
+      img {
+        margin-top: 3rem;
       }
     }
   }
