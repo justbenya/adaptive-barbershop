@@ -1,0 +1,223 @@
+.reviews {
+  padding-top: 2rem;
+  background-color: #f8f5f2;
+
+  @media (max-width: $mobile-width-only) {
+    &::after {
+      content: '';
+      position: absolute;
+      min-width: 32rem;
+      border-left: calc(50vw) solid #353535;
+      border-right: calc(50vw) solid #353535;
+      border-top: 35px solid #f8f5f2;
+      border-bottom: none;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+  
+
+  &__wrapper {
+    position: relative;
+    margin: 0 2rem;
+
+    @media (min-width: $tablet-width) {
+      width: 84%;
+      max-width: 96rem;
+      margin: 0 auto;
+      padding-bottom: 7rem;
+    }
+  }
+
+  &__title {
+    font-size: 3rem;
+    line-height: 3rem;
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 3rem;
+
+    @media (min-width: $tablet-width) {
+      text-align: left;
+      font-size: 4rem;
+      margin-bottom: 5rem;
+      margin-top: 2.5rem;
+    }
+
+    @media (min-width: $desktop-width) {
+      margin-left: 7rem;
+    }
+  }
+
+  &__items {
+    @media (min-width: $tablet-width) {
+      display: flex;
+    }
+  }
+
+  &__item {
+    display: none;
+    margin-bottom: 1rem;
+
+    &--active {
+      display: flex;
+    }
+
+    @media (min-width: $tablet-width) {
+      justify-content: space-between;
+      margin: 0;
+      padding: 3rem 5rem;
+      border: 1px solid #e5ddd5;
+      border-left: none;
+      border-right: none;
+    }
+
+    @media (min-width: $desktop-width) {
+      padding: 0;
+      margin: 0 2.5rem;
+      border: 1px solid #e5ddd5;
+    }
+  }
+
+  &__author-photo {
+    position: relative;
+    flex: none;
+    width: 5rem;
+    height: 4.8rem;
+    margin-top: 1.2rem;
+    box-shadow: 0 0 1px 1px #e9e2db;
+    overflow: hidden;
+    align-self: flex-start;
+
+    img {
+      position: absolute;
+      top: 12px;
+      left: 0;
+      transform: scale(1.55);
+    }
+
+    @media (min-width: $tablet-width) {
+      width: 8rem;
+      height: 8rem;
+      border-radius: 50%;
+    }
+
+    @media (min-width: $desktop-width) {
+      width: 24rem;
+      height: 100%;
+      border-radius: 0;
+      box-shadow: none;
+      margin: 0;
+
+      img {
+        transform: scale(1);
+        top: 0;
+      }
+    }
+  }
+
+  &__author-name {
+    display: inline-block;
+    font-weight: 700;
+    font-size: 2.4rem;
+    line-height: 2.7rem;
+    font-style: normal;
+    margin-bottom: 1.5rem;
+  }
+
+  &__author-box {
+    margin-left: 2.5rem;
+
+    @media (min-width: $desktop-width) {
+      padding: 3rem 5rem;
+    }
+  }
+
+  &__prev,
+  &__next {
+    display: none;
+
+    &:hover, 
+    &:focus, {
+      border-color: #d5c9bd;
+    } 
+
+    &:active {
+      background-color: #d5c9bd;
+
+      &::before {
+        opacity: 0.3;
+      }
+    }
+
+    @media (min-width: $tablet-width) {
+      position: relative;
+      display: block;
+      width: 5rem;
+      padding: 0;
+      font-size: 0;
+      background-color: transparent;
+      border: 1px solid #e5ddd5;
+      outline: none;
+      cursor: pointer;
+      transition: border-color 0.2s linear, background-color 0.2s linear;
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 0;
+        height: 0;
+        border: 0.6rem solid transparent;
+        border-right: none;
+        border-left: 1.2rem solid $color-black;
+        transform: translate(-50%, -50%);
+        transition: filter 0.2s linear;
+      }
+    }
+  }
+
+  &__prev {
+    order: -1;
+    &::before {
+      border-right: 1.2rem solid #000000;
+      border-left: none;
+    }
+  }
+
+  &__button {
+    display: none;
+    padding: 1.3rem 4.5rem;
+    margin: 2rem 2rem 2.4rem;
+
+    @media (min-width: $tablet-width) {
+      position: absolute;
+      display: block;
+      top: -1.5rem;
+      right: 0;
+      margin: 0;
+      padding-right: 3rem;
+      padding-left: 3rem;
+    }
+  }
+
+  &__toggles {
+    padding: 2.5rem 0;
+
+    @media (min-width: $tablet-width) {
+      position: absolute;
+      padding: 0 2.5rem;
+      bottom: 6.7rem;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: #f8f5f2;
+      z-index: 10;
+    }
+
+    @media (min-width: $desktop-width) {
+      padding-top: 5rem;
+      position: static;
+      transform: none;
+    }
+  }
+}
