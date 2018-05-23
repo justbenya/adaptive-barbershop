@@ -1,9 +1,9 @@
 .stats {
-  width: 32rem;
-  margin: 0 auto;
-
+  
   @media (min-width: $tablet-width) {
-    width: 64rem;
+    width: 84%;
+    max-width: 96rem;
+    margin: 0 auto;
     margin-top: -18.8rem; 
   }
 
@@ -14,7 +14,7 @@
   }
 
   &__header {
-    min-height: 13rem;
+    min-height: 18.7rem;
     padding: 3rem 3rem;
     color: $color-black;
     background-color: $color-white;
@@ -37,7 +37,7 @@
     }
 
     @media (min-width: $desktop-width) {
-      display: block;
+      flex-direction: column;
     }
   }
 
@@ -51,11 +51,15 @@
     text-transform: uppercase;
 
     @media (min-width: $tablet-width) {
-      width: 25rem;
+      width: 50%;
       font-size: 4rem;
       line-height: 4rem;
       text-align: left;
-      text-transform: none;    
+      text-transform: none; 
+      
+      br {
+        display: none;
+      }
     }
 
     @media (min-width: $desktop-width) {
@@ -67,16 +71,15 @@
   }
 
   &__intro {
-    font-size: 1.6rem;
-    line-height: 2.2rem;
+    font-size: 2rem;
+    line-height: 2.7rem;
     text-align: center;
 
     @media (min-width: $tablet-width) {
-      font-size: 2rem;
-      line-height: 2.7rem;
-      width: 23rem;
+      width: 37.5%;
       margin-top: 0.5rem;
-      padding-right: 4.4rem;
+      padding-left: 3rem;
+      padding-right: 1rem;
       text-align: left;
     }
 
@@ -84,6 +87,7 @@
       width: auto;
       margin-bottom: 3.2rem;
       padding-right: 3rem;
+      padding-left: 0;
     }
   }
 
@@ -114,12 +118,13 @@
 
       @media (min-width: $tablet-width) {
         display: block;
-        width: 24rem;
+        width: 50%;
         color: rgba(0, 0, 0, 0.3);
       }
 
       @media (min-width: $desktop-width) {
         width: auto;
+        margin-top: auto;
       }
     }
   }
@@ -145,7 +150,7 @@
       }
 
       @media (min-width: $tablet-width) {
-        width: 32rem;
+        width: 50%;
         padding: 2.5rem 3.5rem 2.8rem;
       }
     }

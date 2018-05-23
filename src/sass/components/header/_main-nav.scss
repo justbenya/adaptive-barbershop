@@ -1,8 +1,6 @@
 .main-nav {
   position: relative;
-  width: 32rem;
   min-height: 5rem;
-  margin: 0 auto;
   font-size: 1.8rem;
   line-height: 2.4rem;
   font-weight: 700;
@@ -76,7 +74,7 @@
       left: 1.8rem;
       width: 3.5rem;
       height: 0.2rem;
-      background-color: #ffffff;
+      background-color: $color-white;
     }
 
     &::before {
@@ -201,7 +199,8 @@
     &__wrapper {
       display: flex;
       justify-content: space-between;
-      width: 64rem;
+      width: 84%; // 640/768
+      max-width: 96rem;
       margin: 0 auto;
     }
 
@@ -213,6 +212,7 @@
       display: flex;
       justify-content: flex-start;
       flex-wrap: wrap;
+      flex-grow: 1;
       width: 57rem;
     }
 
@@ -281,10 +281,6 @@
   }
 
   @media (min-width: $desktop-width) {
-    &__wrapper {
-      width: 96rem;
-    }
-
     &__items {
       width: 78rem;
     }
