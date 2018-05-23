@@ -1,0 +1,19 @@
+.button {
+  font-weight: 700;
+  text-align: center;
+  color: $color-black;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: 1px solid #e5ddd5;
+  transition: all 0.2s;
+
+  &:hover, 
+  &:focus {
+    border-color: #d5c9bd;
+  }
+
+  &:active {
+    color: rgba(0, 0, 0, 0.3);
+    background-color: #d5c9bd;
+  }
+}
