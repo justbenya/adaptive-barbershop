@@ -16,4 +16,21 @@
     color: rgba(0, 0, 0, 0.3);
     background-color: #d5c9bd;
   }
+
+  &--theme-dark {
+    color: $color-white;
+    border-color: #3f3f3f;
+
+    &:hover, 
+    &:focus {
+      border-color: #616161;
+    }
+
+    &:active {
+      opacity: 0.3;
+      color: $color-white;
+      background-color: #1d1d1d;
+      border-color: #1d1d1d;
+    }
+  }
 }
