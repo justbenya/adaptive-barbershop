@@ -1,0 +1,50 @@
+.works {
+  &__box {
+    padding: 0 2rem;
+    margin-bottom: 2rem;
+
+    &--work-of-month {
+
+    }
+  }
+
+  &__image-wrapper {
+    text-align: center;
+    background-color: #e6ded6;
+    overflow: hidden;
+    line-height: 0;
+  }
+
+  &__review {
+    padding: 1.9rem 2.1rem 0;
+    border: 1px solid #e5ddd5;
+  }
+
+  &__title {
+    margin-bottom: 1.4rem;
+    font-size: 2.4rem;
+    line-height: 2.7rem;
+  }
+
+  &__text {
+    margin-bottom: 1.6rem;
+  }
+
+  &__parameters {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+  }
+
+  &__parameter {
+    position: relative;
+    margin: 0 3rem 1.5rem 3.5rem;
+    font-size: 1.6rem;
+    text-transform: uppercase;
+
+    //TODO icons добавить
+    &--haircut {
+
+    }
+  }
+}

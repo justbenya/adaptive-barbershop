@@ -1,0 +1,36 @@
+.page-title {
+  padding: 3rem 0 3rem;
+
+  @media (min-width: $tablet-width) {
+    @include responsive-container;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5rem 0 5rem; 
+  }
+
+  @media (min-width: $desktop-width) {
+    padding: 5.5rem 0 5rem; 
+  }
+
+  &__title {
+    font-size: 3rem;
+    line-height: 3rem;
+    text-align: center;
+    text-transform: uppercase;
+
+    @media (min-width: $tablet-width) {
+      text-align: left;
+      font-size: 4rem;
+    }
+  }
+
+  &__button {
+    display: none;
+
+    @media (min-width: $tablet-width) {
+      display: block;
+      padding: 1.2rem 3.5rem;
+    }
+  }
+}
