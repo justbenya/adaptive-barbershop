@@ -1,10 +1,7 @@
 @import "base/typography";
 @import "base/variables";
 @import "base/base";
-// @import "base/animation";
-// @import "pages/home";
-// @import "components/button";
-// @import "components/link";
+@import "vendor/peppermint.suggested";
 @import "components/slider";
 @import "components/header/header";
 @import "components/header/main-nav";
@@ -14,12 +11,3 @@
 @import "components/button";
 @import "components/reviews";
 @import "components/footer";
-// @import "components/header/page-logo";
-// @import "components/section-download/download";
-// @import "components/section-feature/feature";
-// @import "components/section-reviews/review";
-// @import "components/slider";
-// @import "components/price";
-// @import "components/icon";
-// @import "components/feedback";
-// @import "components/map";

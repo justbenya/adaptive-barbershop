@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="js/vendor/peppermint.suggested.css">
   <title>Барбершоп &ldquo;Бородинский&rdquo;</title>
 </head>
 
@@ -167,44 +168,43 @@
   <section class="reviews">
     <div class="reviews__wrapper">
       <h2 class="reviews__title">Отзывы о нас</h2>
-      <div class="reviews__items">
-        <blockquote class="reviews__item  slider__item  reviews__item--active">
-          <div class="reviews__author-photo">
-            <img src="img/travis.jpg" alt="Фото Трэвиса Баркера">
-          </div>
-          <div class="reviews__author-box">
-            <cite class="reviews__author-name">Трэвис Баркер</cite>
-            <p>Спасибо за лысину! Был проездом в Москве, заскочил побриться, чтобы было видно новую татуировку!</p>
-          </div>          
-        </blockquote>
-        <blockquote class="reviews__item  slider__item">
-          <div class="reviews__author-photo">
-            <img src="img/nat-9.jpg" alt="Фото Трэвиса Баркера">
-          </div>
-          <div class="reviews__author-box">
-            <cite class="reviews__author-name">Марк Резз</cite>
-            <p>Понравилось это место. Помещение достаточно светлое и на протяжении всей стрижки мне было комфортно.</p>
-          </div>
-        </blockquote>
-        <blockquote class="reviews__item  slider__item">
-          <div class="reviews__author-photo">
-            <img src="img/nat-8.jpg" alt="Фото Трэвиса Баркера">
-          </div>
-          <div class="reviews__author-box">
-            <cite class="reviews__author-name">Мария Мари</cite>
-            <p>Отличный барбершоп. Атмосферно, красиво, качественно. И мастера - топ. Всем рекомендую!</p>
-          </div>
-        </blockquote>
-        <button class="reviews__prev" type="button">Предыдущий отзыв</button>
-        <button class="reviews__next" type="button">Следующий отзыв</button>
+      <div class="reviews__slider-wrapper">
+        <div class="peppermint peppermint-inactive" id="peppermint">
+          <blockquote class="reviews__item">
+            <div class="reviews__author-photo">
+              <img src="img/travis.jpg" alt="Фото Трэвиса Баркера">
+            </div>
+            <div class="reviews__author-box">
+              <cite class="reviews__author-name">Трэвис Баркер</cite>
+              <p>Спасибо за лысину! Был проездом в Москве, заскочил побриться, чтобы было видно новую татуировку!</p>
+            </div>
+          </blockquote>
+
+          <blockquote class="reviews__item">
+            <div class="reviews__author-photo">
+              <img src="img/nat-9.jpg" alt="Фото Трэвиса Баркера">
+            </div>
+            <div class="reviews__author-box">
+              <cite class="reviews__author-name">Марк Резз</cite>
+              <p>Понравилось это место. Помещение достаточно светлое и на протяжении всей стрижки мне было комфортно.</p>
+            </div>
+          </blockquote>
+
+          <blockquote class="reviews__item">
+            <div class="reviews__author-photo">
+              <img src="img/nat-8.jpg" alt="Фото Трэвиса Баркера">
+            </div>
+            <div class="reviews__author-box">
+              <cite class="reviews__author-name">Мария Мари</cite>
+              <p>Отличный барбершоп. Атмосферно, красиво, качественно. И мастера - топ. Всем рекомендую!</p>
+            </div>
+          </blockquote>
+        </div>
+        <button id="prevBtn" class="reviews__prev" type="button">Предыдущий отзыв</button>
+        <button id="nextBtn" class="reviews__next" type="button">Следующий отзыв</button>
       </div>
+      <div class="reviews__toggles  slider__toggles"></div>
       <a class="reviews__button  button" href="#">Оставить свой</a>
-      <div class="reviews__toggles  slider__toggles">
-        <label class="reviews__toggle  slider__toggle  slider__toggle--dark" for="reviews-input-1">1</label>
-        <label class="reviews__toggle  slider__toggle  slider__toggle--dark" for="reviews-input-2">2</label>
-        <label class="reviews__toggle  slider__toggle  slider__toggle--dark" for="reviews-input-3">3</label>
-      </div>
-    </div>
   </section>
 
   <footer class="footer">
@@ -255,53 +255,11 @@
     </div>
     
   </footer>
-  <script>
-    var nav = document.querySelector('.main-nav');
-    var button = document.querySelector('.main-nav__toggle');
-    nav.classList.remove('main-nav--nojs');
 
-    button.addEventListener('click', function() {
-      if (nav.classList.contains('main-nav--closed')) {
-        nav.classList.remove('main-nav--closed');
-        nav.classList.add('main-nav--opened');
-      } else {
-        nav.classList.remove('main-nav--opened');
-        nav.classList.add('main-nav--closed');
-      }
-    });
+  <script src="js/vendor/peppermint.min.js"></script>
+  <script src="js/sliderReviews.js"></script>
+  <script src="js/nav.js"></script>
+  <script src="js/mainSlider.js"></script>
 
-
-    var slider = document.querySelector('.slider');
-    slider.classList.remove('slider--nojs'); 
-    var advantages = document.querySelector('.advantages');
-    advantages.classList.remove('advantages--nojs');
-
-    var toggles = document.querySelectorAll('.slider__toggle');
-    var items = document.querySelectorAll('.advantages__item');
-
-    toggles.forEach(function(element) {
-      element.addEventListener('click', function(e) {
-        if (!e.target.classList.contains('slider__toggle--active')) {
-          // Убираем все выделения
-          toggles.forEach(function(button) {
-            button.classList.remove('slider__toggle--active');
-          });
-
-          // Выделяем нужную кнопку
-          e.target.classList.add('slider__toggle--active');
-
-          items.forEach(function(element) {
-            element.classList.remove('advantages__item--active');
-          });
-
-          // Выведем нужный слайд
-          var slide = e.target.innerHTML;
-          items[slide-1].classList.add('advantages__item--active');
-        }
-      });      
-
-
-    });
-  </script>
 </body>
 </html>
