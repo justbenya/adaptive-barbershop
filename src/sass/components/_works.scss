@@ -38,13 +38,37 @@
 
   &__parameter {
     position: relative;
-    margin: 0 3rem 1.5rem 3.5rem;
+    margin: 0 3rem 1.5rem 0;
+    padding-left: 3.5rem;
     font-size: 1.6rem;
     text-transform: uppercase;
 
-    //TODO icons добавить
-    &--haircut {
+    &::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 45px;
+      height: 21px;
+      background-repeat: no-repeat;
+      background-position: center center;
+      transform: translate(-30%, -50%);
+    }
 
+    &--haircut::before {
+      background-image: url("../img/svg-icon/icon-scissors.svg");
+    }
+
+    &--shaving::before {
+      background-image: url("../img/svg-icon/icon-beard.svg");
+    }
+
+    &--mustache {
+      padding-left: 4.5rem;
+
+      &::before {
+        background-image: url("../img/svg-icon/icon-mustache.svg");
+      }  
     }
   }
 }
