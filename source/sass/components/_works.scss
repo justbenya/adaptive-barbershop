@@ -1,10 +1,134 @@
 .works {
+  position: relative;
+  padding-bottom: 5rem;
+  
+  &::before,
+  &::after {
+    content: '';
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    display: block;
+    position: absolute;
+    width: 50%;
+    height: 4rem;
+    bottom: 0;
+  }
+
+  &::before {
+    right: 0;
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpolygon points='100,0 100,100 0,100' style='fill:%23353535;' /%3E%3C/svg%3E");
+  }
+
+  &::after {
+    left: 0;
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpolygon points='0,0 0,100 100,100' style='fill:%23353535;' /%3E%3C/svg%3E");
+  }
+
+  @media (min-width: $desktop-width) {
+    &::before,
+    &::after {
+      background-image: none;
+    }
+  }
+
+  &__wrapper {
+    @media (min-width: $tablet-width) {
+      @include responsive-container;
+    }
+
+    @media (min-width: $desktop-width) {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+  }
+
   &__box {
     padding: 0 2rem;
     margin-bottom: 2rem;
 
+    @media (min-width: $tablet-width) {
+      display: flex;
+      padding: 0;
+      margin-bottom: 4rem;
+    }
+
+    @media (min-width: $desktop-width) {
+      &:first-child  .works__review {
+        width: 42%;
+        padding: 13rem 15.5rem 1rem 4rem;
+      }
+
+      &:not(:first-child) {
+        flex-direction: column;
+        width: 30rem;
+      }
+    }
+
     &--work-of-month {
-      
+      position: relative;
+
+      &::before {
+        content: "Работа месяца";
+        position: absolute;
+        top: 40rem;
+        left: 2rem;
+        z-index: 2;
+        width: 16rem;
+        padding: 1.5rem 1.5rem 1.5rem 1rem;
+        font-size: 2rem;
+        line-height: 2rem;
+        font-weight: 700;
+        text-align: center;
+        color: $color-white;
+        text-transform: uppercase;
+        background-color: $color-light-brown;
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: 40rem;
+        left: 18rem;
+        z-index: 2;
+        width: 1.5rem;
+        height: 5rem;
+        background-image: linear-gradient(to top left, transparent 50%, $color-light-brown 50%), 
+                          linear-gradient(to top right, $color-light-brown 50%, transparent 50%);
+      }
+
+      @media (min-width: $tablet-width) {
+        &::before,
+        &::after {
+          top: 4rem;
+        }
+
+        &::before {
+          left: 0;
+        }
+
+        &::after {
+          left: 16rem;
+        }
+      }
+
+      @media (min-width: $desktop-width) {
+        &::before {
+          top: 2.5rem;
+          right: 0;
+          bottom: auto;
+          left: auto;
+        }
+
+        &::after {
+          top: 2.5rem;
+          right: 16rem;
+          bottom: auto;
+          left: auto;
+          background-image: linear-gradient(to top left, $color-light-brown 50%, transparent 50%), 
+                            linear-gradient(to top right, transparent 50%, $color-light-brown 50%);
+        }
+      }
     }
   }
 
@@ -13,21 +137,52 @@
     background-color: #e6ded6;
     overflow: hidden;
     line-height: 0;
+
+    @media (min-width: $tablet-width) {
+      min-width: 27rem;
+    }
   }
 
   &__review {
     padding: 1.9rem 2.1rem 0;
     border: 1px solid #e5ddd5;
+
+    @media (min-width: $tablet-width) {
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      padding: 4.5rem 5rem 2rem;
+    }
+
+    @media (min-width: $desktop-width) {
+      padding: 2.5rem 3rem 1rem;
+    }
   }
 
   &__title {
     margin-bottom: 1.4rem;
     font-size: 2.4rem;
     line-height: 2.7rem;
+
+    @media (min-width: $tablet-width) {
+      margin-bottom: 3rem;
+    }
+
+    @media (min-width: $desktop-width) {
+      margin-bottom: 2rem;
+    }
   }
 
   &__text {
     margin-bottom: 1.6rem;
+
+    @media (min-width: $tablet-width) {
+      margin-bottom: auto;
+    }
+
+    @media (min-width: $desktop-width) {
+      padding-bottom: 2rem;
+    }
   }
 
   &__parameters {
