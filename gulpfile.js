@@ -15,12 +15,14 @@ var svgmin = require("gulp-svgmin");
 var rename = require("gulp-rename");
 var server = require("browser-sync").create();
 var run = require("run-sequence");
+var wait = require("gulp-wait");
 var del = require("del");
 
 /* Создаем css */
 gulp.task("style", function() {
   gulp.src("source/sass/main.scss")
     .pipe(plumber())
+    .pipe(wait(500))
     .pipe(sass())
     .pipe(postcss([
       autoprefixer()
@@ -69,7 +71,10 @@ gulp.task("compress", function () {
 
 gulp.task("serve", function () {
   server.init({
-    server: "build/"
+    server: "build/",
+    notify: false,
+    cors: true,
+    ui: false
   });
   gulp.watch("source/sass/**/*.scss", ["style"]);
   gulp.watch("source/*.html", ["html"]);
