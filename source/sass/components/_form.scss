@@ -1,7 +1,11 @@
 .form {
   margin: 0 2rem;
   padding-bottom: 4rem;
-  @include responsive-container;
+  background-color: #f8f5f2;
+
+  &__wrapper {
+    @include responsive-container;
+  }
 
   &__group {
     margin-bottom: 2rem;
@@ -162,6 +166,7 @@
     &::after {
       content: "";
       position: relative;
+      display: block;
       width: 7rem;
       height: 10.5rem;
       top: 1rem;

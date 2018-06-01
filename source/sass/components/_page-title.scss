@@ -1,5 +1,6 @@
 .page-title {
   padding: 3rem 0 3rem;
+  background-color: inherit;
 
   @media (min-width: $tablet-width) {
     @include responsive-container;
