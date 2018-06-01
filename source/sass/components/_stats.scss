@@ -4,17 +4,16 @@
     width: 84%;
     max-width: 96rem;
     margin: 0 auto;
-    margin-top: -18.8rem; 
+    margin-top: -20.5rem; 
   }
 
   @media (min-width: $desktop-width) {
     display: flex;
-    width: 96rem;
-    margin-top: -16rem;
+    margin-top: -16.6rem;
   }
 
   &__header {
-    min-height: 18.7rem;
+    min-height: 12.9rem;
     padding: 3rem 3rem;
     color: $color-black;
     background-color: $color-white;
@@ -38,6 +37,9 @@
 
     @media (min-width: $desktop-width) {
       flex-direction: column;
+      flex-grow: 1;
+      width: 24rem;
+      padding-right: 1rem;
     }
   }
 
@@ -56,10 +58,6 @@
       line-height: 4rem;
       text-align: left;
       text-transform: none; 
-      
-      br {
-        display: none;
-      }
     }
 
     @media (min-width: $desktop-width) {
@@ -133,6 +131,12 @@
     width: 100%;
     border-collapse: collapse;
 
+    @media (min-width: $desktop-width) {
+      width: 64rem;
+      display: flex;
+      flex-grow: 1;
+    }
+
     tr {
       color: $color-white;
       background-color: #404040;
@@ -151,29 +155,24 @@
 
       @media (min-width: $tablet-width) {
         width: 50%;
+        display: block;
         padding: 2.5rem 3.5rem 2.8rem;
       }
     }
 
-    @media (min-width: $tablet-width) {
-      tbody {
+    tbody {
+      @media (min-width: $tablet-width) {
         display: flex;
         flex-wrap: wrap;
       }
-      
-      td {
+    }
+
+    td {
+      @media (min-width: $tablet-width) {
         display: block;
         width: auto;
         padding: 0;
       }
-
-      br {
-        display: none;
-      }
-    }
-
-    @media (min-width: $desktop-width) {
-      width: 64rem;
     }
   }
 
@@ -212,6 +211,11 @@
       font-size: 2rem;
       line-height: 2.7rem;
       text-align: left;
+
+      
+      br {
+        display: none;
+      }
     }
   }
 }
