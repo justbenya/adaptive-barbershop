@@ -131,6 +131,10 @@
     width: 100%;
     border-collapse: collapse;
 
+    @media (min-width: $tablet-width) {
+      display: flex;
+    }
+
     @media (min-width: $desktop-width) {
       width: 64rem;
       display: flex;
