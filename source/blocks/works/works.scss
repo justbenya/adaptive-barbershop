@@ -217,18 +217,18 @@
     }
 
     &--haircut::before {
-      background-image: url("../img/svg-icon/icon-scissors.svg");
+      background-image: url("../img/icon-scissors.svg");
     }
 
     &--shaving::before {
-      background-image: url("../img/svg-icon/icon-beard.svg");
+      background-image: url("../img/icon-beard.svg");
     }
 
     &--mustache {
       padding-left: 4.5rem;
 
       &::before {
-        background-image: url("../img/svg-icon/icon-mustache.svg");
+        background-image: url("../img/icon-mustache.svg");
       }  
     }
   }

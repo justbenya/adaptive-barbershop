@@ -53,14 +53,31 @@
 
   &__item {
     position: relative;
-    display: none;
     font-size: 2rem;
     font-weight: 400;
     padding: 12rem 4rem 2rem;
     margin-bottom: 2rem;
 
-    &--active {
-      display: block;
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 9.5rem;
+      height: 9.4rem;
+      background-repeat: no-repeat;
+
+      @media (min-width: $tablet-width) {
+        right: 0;
+        left: 0;
+        transform: none;
+      }
+
+      @media (min-width: $desktop-width) {
+        left: 50%;
+        transform: translateX(-50%);
+      }
     }
 
     @media (min-width: $tablet-width) {
@@ -85,28 +102,6 @@
 
       &:last-child {
         border: 0;
-      }
-    }
-
-    &::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 9.5rem;
-      height: 9.4rem;
-      background-repeat: no-repeat;
-
-      @media (min-width: $tablet-width) {
-        right: 0;
-        left: 0;
-        transform: none;
-      }
-
-      @media (min-width: $desktop-width) {
-        left: 50%;
-        transform: translateX(-50%);
       }
     }
 

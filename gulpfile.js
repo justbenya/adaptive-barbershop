@@ -60,7 +60,7 @@ gulp.task("js:build:vendor", function () {
 });
 
 gulp.task("images:build", function() {
-  return gulp.src("source/**/*.{png,jpg,gif}")
+  return gulp.src("source/**/*.{png,jpg,gif,svg}")
     .pipe(imagemin([
       imagemin.optipng({optimizationLevel: 3}), /* 1 - максимальное сжатие, 3 - безопасное сжатие, 10 - без сжатия*/
       imagemin.jpegtran({progressive: true}),
@@ -70,27 +70,28 @@ gulp.task("images:build", function() {
     .pipe(server.stream());
 });
 
-gulp.task("svg:copy", function () {
-  return gulp.src("source/img/**/*.svg", {
-    base: "source"
-  })
-  .pipe(gulp.dest("build"));
-});
+// gulp.task("svg:copy", function () {
+//   return gulp.src("source/**/*.svg", {
+//     base: "source"
+//   })
+//   .pipe(gulp.dest("build/img"))
+//   .pipe(server.stream());
+// });
 
 gulp.task("fonts:build", function () {
   return gulp.src("source/fonts/**/*.*")
     .pipe(gulp.dest("build/fonts/"));
 });
 
-gulp.task("sprites", function() {
-  return gulp.src("source/img/icons/*.svg")
-    .pipe(svgmin())
-    .pipe(svgstore({
-      inlineSvg: true
-    }))
-    .pipe(rename("sprite.svg"))
-    .pipe(gulp.dest("build/img"));
-});
+// gulp.task("sprites", function() {
+//   return gulp.src("source/img/icons/*.svg")
+//     .pipe(svgmin())
+//     .pipe(svgstore({
+//       inlineSvg: true
+//     }))
+//     .pipe(rename("sprite.svg"))
+//     .pipe(gulp.dest("build/img"));
+// });
 
 gulp.task("serve", function () {
   server.init({
@@ -115,7 +116,7 @@ gulp.task("watch", function () {
   watch(["source/js/**/*.js"], function (event, cb) {
     gulp.start("js:build");
   });
-  watch(["source/img/**/*.*"], function (event, cb) {
+  watch(["source/**/*.*"], function (event, cb) {
     gulp.start("images:build");
   });
   watch(["source/fonts/**/*.*"], function (event, cb) {
@@ -125,25 +126,24 @@ gulp.task("watch", function () {
 
 gulp.task("default", ["build", "serve", "watch"]);
 
-// gulp.task("build", function (done) {
-//   run(
-//     "clean",
-//     "html:build",
-//     "js:build",
-//     "js:build:vendor",
-//     "style:build",
-//     "fonts:build",
-//     "images:build",
-//     "svg:copy",
-//     "sprites",
-//     done
-//   );
-// });
+gulp.task("build", function (done) {
+  run(
+    "clean",
+    "html:build",
+    "js:build",
+    "js:build:vendor",
+    "style:build",
+    "fonts:build",
+    "images:build",
+    done
+  );
+});
 
-gulp.task('build', [
-  'html:build',
-  'js:build',
-  'style:build',
-  'fonts:build',
-  'images:build'
-]);
+// gulp.task('build', [
+//   'html:build',
+//   'js:build',
+//   "js:build:vendor",
+//   'style:build',
+//   'fonts:build',
+//   'images:build'
+// ]);
