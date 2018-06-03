@@ -1,5 +1,6 @@
 var gulp = require("gulp");
 var sass = require("gulp-sass");
+var watch = require("gulp-watch");
 var plumber = require("gulp-plumber");
 var postcss = require("gulp-postcss");
 var posthtml = require("gulp-posthtml");
@@ -16,10 +17,11 @@ var rename = require("gulp-rename");
 var server = require("browser-sync").create();
 var run = require("run-sequence");
 var wait = require("gulp-wait");
+var rigger = require("gulp-rigger");
 var del = require("del");
 
 /* Создаем css */
-gulp.task("style", function() {
+gulp.task("style:build", function() {
   gulp.src("source/sass/main.scss")
     .pipe(plumber())
     .pipe(wait(500))
@@ -35,38 +37,59 @@ gulp.task("style", function() {
     .pipe(server.stream());
 });
 
-gulp.task("images", function() {
-  return gulp.src("build/img/*.{png,jpg,gif}")
+// Собираем все компоненты в один
+gulp.task("html:build", function () {
+  gulp.src("source/**/*.html")  //Выберем файлы по нужному пути
+    .pipe(rigger())             //Прогоним через rigger
+    .pipe(gulp.dest("build"))   //Выплюнем их в папку build
+    .pipe(server.stream());     //И перезагрузим наш сервер для обновлений
+});
+
+gulp.task("js:build", function () {
+  gulp.src("source/js/main.js") //Найдем наш main файл
+    .pipe(rigger())             //Прогоним через rigger
+    .pipe(uglify())             //Сожмем наш js
+    .pipe(gulp.dest("build/js")) //Выплюнем готовый файл в build
+    .pipe(server.stream()); //И перезагрузим сервер
+});
+
+// временно
+gulp.task("js:build:vendor", function () {
+  gulp.src("source/js/assets/vendor/*.js") 
+    .pipe(gulp.dest("build/js")) 
+    .pipe(server.stream());
+});
+
+gulp.task("images:build", function() {
+  return gulp.src("source/img/**/*.{png,jpg,gif}")
     .pipe(imagemin([
       imagemin.optipng({optimizationLevel: 3}), /* 1 - максимальное сжатие, 3 - безопасное сжатие, 10 - без сжатия*/
       imagemin.jpegtran({progressive: true}),
       ]))
-    .pipe(gulp.dest("build/img"));
+    .pipe(gulp.dest("build/img"))
+    .pipe(server.stream());
+});
+
+gulp.task("svg:copy", function () {
+  return gulp.src("source/img/**/*.svg", {
+    base: "source"
+  })
+  .pipe(gulp.dest("build"));
+});
+
+gulp.task("fonts:build", function () {
+  return gulp.src("source/fonts/**/*.*")
+    .pipe(gulp.dest("build/fonts/"));
 });
 
 gulp.task("sprites", function() {
-  return gulp.src("build/img/icons/*.svg")
+  return gulp.src("source/img/icons/*.svg")
     .pipe(svgmin())
     .pipe(svgstore({
       inlineSvg: true
     }))
     .pipe(rename("sprite.svg"))
     .pipe(gulp.dest("build/img"));
-});
-
-gulp.task("html", function () {
-  return gulp.src("source/*.html")
-    .pipe(posthtml([
-      include()
-    ]))
-    .pipe(htmlmin({ collapseWhitespace: true }))
-    .pipe(gulp.dest("build"));
-});
-
-gulp.task("compress", function () {
-  return gulp.src("source/js/*.js")
-    .pipe(uglify())
-    .pipe(gulp.dest("build/js"));
 });
 
 gulp.task("serve", function () {
@@ -76,33 +99,43 @@ gulp.task("serve", function () {
     cors: true,
     ui: false
   });
-  gulp.watch("source/sass/**/*.scss", ["style"]);
-  gulp.watch("source/*.html", ["html"]);
-});
-
-gulp.task("copy", function () {
-  return gulp.src([
-    "source/fonts/**/*.{woff,woff2}",
-    "source/img/**",
-    "source/js/**"
-  ],{
-      base: "source"
-    })
-    .pipe(gulp.dest("build"));
 });
 
 gulp.task("clean", function() {
   return del("build");
 });
 
+gulp.task("watch", function () {
+  watch(["source/**/ *.html"], function (event, cb) {
+    gulp.start("html:build");
+  });
+  watch(["source/sass/**/*.scss"], function (event, cb) {
+    gulp.start("style:build");
+  });
+  watch(["source/js/**/*.js"], function (event, cb) {
+    gulp.start("js:build");
+  });
+  watch(["source/img/**/*.*"], function (event, cb) {
+    gulp.start("images:build");
+  });
+  watch(["source/fonts/**/*.*"], function (event, cb) {
+    gulp.start('fonts:build');
+  });
+});
+
+gulp.task("default", ["build", "serve", "watch"]);
+
 gulp.task("build", function (done) {
   run(
     "clean",
-    "copy",
-    "style",
+    "html:build",
+    "js:build",
+    "js:build:vendor",
+    "style:build",
+    "fonts:build",
+    "images:build",
+    "svg:copy",
     "sprites",
-    "html",
-    "compress",
     done
   );
 });

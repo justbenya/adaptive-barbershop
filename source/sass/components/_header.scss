@@ -54,6 +54,11 @@
     height: 8.5rem;
     text-align: center;
 
+    img {
+      width: 22.6rem;
+      height: 3rem;
+    }
+
     @media (min-width: $tablet-width) {
       order: 2;
       width: 100%;
