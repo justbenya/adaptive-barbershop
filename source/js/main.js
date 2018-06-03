@@ -1,14 +1,20 @@
 /*
  * nav
- */
-//= assets/nav.js
+*/
+//= ..\blocks\page-nav\nav.js
 
 /*
- * Main Slider
- */
-//= assets/mainSlider.js
+ * Reviews slider
+*/
+//= ..\blocks\reviews\reviews.js
 
-/*
- * Main Slider
- */
-//= assets/sliderReviews.js
+
+// /*
+//  * Main Slider
+//  */
+// //= assets/mainSlider.js
+
+// /*
+//  * Main Slider
+//  */
+// //= assets/sliderReviews.js

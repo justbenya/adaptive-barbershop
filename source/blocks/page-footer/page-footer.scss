@@ -1,9 +1,11 @@
-.footer {
+.page-footer {
   padding-top: 6rem;
   background-color: #292929;
   color: $color-white;
 
   &__wrapper {
+    padding: 0 -2rem;
+
     @media (min-width: $tablet-width) {
       width: 84%;
       max-width: 96rem;

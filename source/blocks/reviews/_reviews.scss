@@ -19,6 +19,7 @@
   &__wrapper {
     position: relative;
     margin: 0 2rem;
+    min-width: 28rem;
 
     @media (min-width: $tablet-width) {
       width: 84%;
