@@ -16,6 +16,6 @@
 * JavaScript ES5.
 * Svg-images.
 
-![index](justbenya.github.com/adaptive-barbershop/readme/index.png)
-![tablet](justbenya.github.com/adaptive-barbershop/readme/tablet.png)
-![form](justbenya.github.com/adaptive-barbershop/readme/form.png)
+![index](https://github.com/justbenya/adaptive-barbershop/tree/master/readme/index.png)
+![tablet](https://github.com/justbenya/adaptive-barbershop/tree/master/readme/tablet.png)
+![form](https://github.com/justbenya/adaptive-barbershop/tree/master/readme/form.png)
