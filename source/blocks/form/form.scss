@@ -81,7 +81,7 @@
     font-size: 2rem;
     line-height: 2.7rem;
     text-transform: uppercase;
-    margin-bottom: 2rem;
+    margin-bottom: 2.5rem;
     text-align: center;
 
     @media (min-width: $tablet-width) {
@@ -148,7 +148,8 @@
     flex-direction: column;
     align-items: center;
     font-size: 1.8rem;
-    line-height: 2.4rem; 
+    line-height: 2.4rem;
+    padding-bottom: 2rem; 
     
     &::before {
       content: "";
@@ -205,6 +206,68 @@
     }
   }
 
+  &__checkbox-list {
+    list-style: none;
+
+    @media (min-width: $tablet-width) {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+
+      li {
+        width: 50%;
+        margin-bottom: 2rem;
+      }
+    }
+
+    @media (min-width: $desktop-width) {
+      li {
+        width: 33.333333%;
+      }
+    }
+  }
+
+  &__input-checkbox:checked + &__checkbox::after {
+    display: block;
+    width: 1rem;
+    height: 2rem;
+    border-color: $color-black;
+    transition: all 0.2s;
+  }
+
+  &__checkbox {
+    position: relative;
+    display: flex;
+    align-self: center;
+    padding: 1rem 0;
+
+    &::before {
+      content: "";
+      display: inline-block;
+      margin-right: 2rem;
+      width: 3.5rem;
+      height: 3.5rem;
+      border: 0.1rem solid #e5ddd5;
+      cursor: pointer;
+      background-color: $color-white;
+      transition: all .2s ease;
+    }
+
+    &::after {
+      content: "";
+      display: none;
+      position: absolute;
+      height: 2rem;
+      width: 1rem;
+      left: 0.7rem;
+      top: 3rem;
+      border-right: .2rem solid $color-black;
+      border-top: .2rem solid $color-black;
+      transform: scaleX(-1) rotate(135deg);
+      transform-origin: left top;
+    }
+  }
+
   &__button {
     display: block;
     width: 100%;
@@ -212,7 +275,7 @@
     font-weight: 700;
     color: $color-white;
     background-color: #826550;
-    margin-top: 5rem;
+    margin-top: 3rem;
     padding: 1rem 2rem;
   }
 }
