@@ -2,3 +2,4 @@ material/
 node_modules
 .history
 src/css/style.css
+build/
