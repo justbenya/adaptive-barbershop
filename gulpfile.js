@@ -60,7 +60,7 @@ gulp.task("js:build:vendor", function () {
 });
 
 gulp.task("images:build", function() {
-  return gulp.src("source/**/*.{png,jpg,gif,svg}")
+  return gulp.src("source/blocks/**/*.{png,jpg,gif,svg}")
     .pipe(imagemin([
       imagemin.optipng({optimizationLevel: 3}), /* 1 - максимальное сжатие, 3 - безопасное сжатие, 10 - без сжатия*/
       imagemin.jpegtran({progressive: true}),
@@ -69,6 +69,13 @@ gulp.task("images:build", function() {
     .pipe(gulp.dest("build/img"))
     .pipe(server.stream());
 });
+
+gulp.task("images:favicon", function () {
+  return gulp.src("source/favicon/**/*.{png,jpg,gif,ico}")
+    .pipe(gulp.dest("build/favicon"))
+    .pipe(server.stream());
+});
+
 
 // gulp.task("svg:copy", function () {
 //   return gulp.src("source/**/*.svg", {
@@ -135,6 +142,7 @@ gulp.task("build", function (done) {
     "style:build",
     "fonts:build",
     "images:build",
+    "images:favicon",
     done
   );
 });
