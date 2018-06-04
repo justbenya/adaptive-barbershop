@@ -36,12 +36,13 @@
     }
   }
 
-  //TODO CHANGE mixin
   &__wrapper {
     @media (min-width: $tablet-width) {
       display: flex;
       justify-content: space-between;
-      @include responsive-container;
+      width: 84%;
+      max-width: 96rem;
+      margin: 0 auto;
     }
   }
 
